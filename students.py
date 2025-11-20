@@ -20,7 +20,7 @@ def ensure_students_file():
     if not os.path.exists(STUDENTS_CSV):
         with open(STUDENTS_CSV, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
-            writer.writerow(["student_id", "name", "class", "phone"])
+            writer.writerow(["student_id", "name", "semester", "phone"])
 
 # ----- IO -----
 def load_students():
@@ -98,3 +98,4 @@ def search_students(query):
         if q in r.get("name","").lower() or q == r.get("student_id","") or q in r.get("semester","").lower() or q in r.get("phone",""):
             out.append(r)
     return out
+
